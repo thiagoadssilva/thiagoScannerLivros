@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Jumbotron, Button } from 'react-bootstrap';
 import axios from 'axios';
-import Modal from '../Modal';
+import Paginacao from '../Paginacao';
 
 import {
     Container,
@@ -15,29 +15,39 @@ import {
 
 export default () => {
 
+    const ITEMS_PAGES = 50;
+
     const [nameBook, setNameBook] = useState('php');
     const [result, setResult] = useState([]);
     const [apiKey, setApiKey] = useState('AIzaSyCtu7ZTNOPAgMNlLrvGzHqCIaH-cU2AiIk');
-    const [openModal, setOpenModal] = useState(false);
-    const [bookIdDetails, setBookIdDetails] = useState('');
+    const [totalItems, setTotalsItems] = useState();
+    const [currentPage, setCurrentPage] = useState(1);
 
     //- Função que vai capturar o que estiver sendo digitado no campo.
     function handleChange(event) {
         const book = event.target.value;
         setNameBook(book);
     }
-    //- Função que vai fazer a cominicação com api de livros da google
-    function handleSearch(event) {
-        event.preventDefault();
-        axios.get(`https://www.googleapis.com/books/v1/volumes?q=${nameBook}&key=${apiKey}&maxResults=40`)
-            .then(data => {
-                setResult(data.data.items);
-                console.log(data.data.items);
-            });
-    }
 
-    function openModalDetails() {
-        setOpenModal(true);
+    useEffect(() => {
+        //- Função que vai fazer a cominicação com api de livros da google
+        function handleSearch(event) {
+            event.preventDefault();
+            //axios.get(`https://www.googleapis.com/books/v1/volumes?q=${nameBook}&key=${apiKey}&maxResults=40`)
+            axios.get(`https://www.googleapis.com/books/v1/volumes?q=${nameBook}&key=${apiKey}`)
+                .then(data => {
+                    setResult(data.data.items);
+                    setTotalsItems(data.data.totalItems)
+                });
+        }
+
+        handleSearch();
+    }, [currentPage]);
+
+
+
+    function handleChangePage(page) {
+        setCurrentPage(page);
     }
 
     return (
@@ -58,25 +68,18 @@ export default () => {
             </Jumbotron>
 
             <ContainerImage>
-
                 {result.map(book => (
                     <ContainerImageOne >
-                        <ImageBook onClick={openModalDetails} src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} />
-                       
+                        <ImageBook src={book.volumeInfo.imageLinks.thumbnail} alt={book.title} />
+                        <ContainerDescription>
+                            <TitleBook>{book.volumeInfo.title}</TitleBook>
+                            <TitleAuthor>{book.volumeInfo.authors}</TitleAuthor>
+                        </ContainerDescription>
                     </ContainerImageOne>
                 ))}
-                
             </ContainerImage>
-            <Modal openModal={openModal} />
 
-
+            <Paginacao totalItems={totalItems} itemsPage={ITEMS_PAGES} currentPage={currentPage} changePage={handleChangePage} />
         </Container>
     );
 }
-
-{/* <ContainerDescription>
-                            Descrição:
-                            <TitleBook>{book.volumeInfo.title}</TitleBook>
-                            Autor:
-                            <TitleAuthor>{book.volumeInfo.authors}</TitleAuthor>
-                        </ContainerDescription> */}

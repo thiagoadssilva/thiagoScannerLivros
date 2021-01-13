@@ -11,21 +11,9 @@ export const ContainerImage = styled.div`
 
 export const ContainerImageOne = styled.div`
     display: flex;
-    display:block;
-    border: 1px solid #FFF;
     margin: 10px;
-    text-decoration: none;
     padding: 10px;
-    border-radius: 5px;
-    color: #000;
-    background-color: #EEE;
-    transition: all ease .2s;
-    cursor: pointer;
-
-    &:hover{
-        background-color: #E9ECEF;
-    }
-    
+    background-color: #E9ECEF;
 `;
 
 export const ImageBook = styled.img`
