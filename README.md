@@ -4,7 +4,7 @@
 * O projeto consiste em mostrar para usuário o livro da pesquisa.
 
 * Dentro do <b>README</b> da pasta do projeto está tudo que está sendo usando.
-   * https://github.com/thiagoadssilva/udemyListaTarefas/blob/main/frontend/README.md
+   * https://github.com/thiagoadssilva/thiagoScannerLivros/blob/main/frontend/README.md
 
 <hr/>
 

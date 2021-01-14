@@ -35,13 +35,6 @@
 * Referências: https://testing-library.com/docs/react-testing-library/intro
 <hr>
 
-## Hook Router
-    yarn add hookrouter --save
-
-* Referências: https://github.com/Paratron/hookrouter
-
-<hr>
-
 ## Axios
 
     * yarn add axios
