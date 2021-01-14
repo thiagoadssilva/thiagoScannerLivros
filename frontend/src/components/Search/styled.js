@@ -1,24 +1,35 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+    padding: 20px;
     height: 100vh;
+    background-color: #393e46;
 `;
+
+export const ContainerJumbotron = styled.div`
+
+`;
+
+export const LinkCompra = styled.a`
+    
+`;
+
 
 export const ContainerImage = styled.div`
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 `;
 
 export const ContainerImageOne = styled.div`
-    display: flex;
     margin: 10px;
     padding: 10px;
-    background-color: #E9ECEF;
+    background-color: #E9E9EC;
 `;
 
 export const ImageBook = styled.img`
-    width: 50px;
-    height: 50px;
+    width: 100px;
+    height: 100px;
     border-radius: 5px;
 `;
 
@@ -33,7 +44,6 @@ export const TitleAuthor = styled.label`
 `;
 
 export const ContainerDescription = styled.div`
-    display: flex;
-    flex-direction: column;
+
 `;
 
