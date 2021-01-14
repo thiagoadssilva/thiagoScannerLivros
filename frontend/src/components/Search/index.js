@@ -17,7 +17,7 @@ import {
 
 export default () => {
 
-    const [nameBook, setNameBook] = useState('PHP');
+    const [nameBook, setNameBook] = useState('');
     const [result, setResult] = useState([]);
     const [apiKey, setApiKey] = useState('AIzaSyCtu7ZTNOPAgMNlLrvGzHqCIaH-cU2AiIk');
 
