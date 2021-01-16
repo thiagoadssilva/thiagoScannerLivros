@@ -31,7 +31,9 @@ export default () => {
         event.preventDefault();
         axios.get(`https://www.googleapis.com/books/v1/volumes?q=${nameBook}&key=${apiKey}&maxResults=40`)
             .then(data => {
-                setResult(data.data.items);
+                if(data != ''){
+                    setResult(data.data.items);
+                }
             });
     }
 
