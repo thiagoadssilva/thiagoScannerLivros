@@ -37,22 +37,22 @@ export const ImageBook = styled.img`
 export const TitleBook = styled.label`
     width: 150px;
     word-wrap: break-word;
-    font-size: 12px;
+    font-size: 11px;
     margin-bottom: 2px;
     font-weight: 900;
-    padding-left: 10px;
+    padding-left: 13px;
 `;
 
 export const TitleAuthor = styled.label`
     width: 150px;
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 900;
     padding: 5px;
     margin-bottom: 2px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    padding-left: 10px;
+    padding-left: 13px;
 `;
 
 export const ContainerDescription = styled.div`
@@ -63,19 +63,20 @@ export const ContainerDescription = styled.div`
     background-color: #CCC;
     border-radius: 15px;
     margin-top: 10px;
+
 `;
 
 export const TitleName = styled.label`
     margin-bottom: 0px;
     font-size: 12px;
     font-weight: bold;
-    padding: 5px;
+    padding: 10px;
 `;
 export const TitleAuthorName = styled.label`
     margin-bottom: 0px;
     font-size: 12px;
     font-weight: bold;
-    padding: 5px;
+    padding: 10px;
 `;
 
 export const InfoNotBuy = styled.label`

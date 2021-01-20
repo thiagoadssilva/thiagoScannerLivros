@@ -26,8 +26,13 @@ export default () => {
     const [nameBook, setNameBook] = useState('php');
     const [result, setResult] = useState([]);
     const [apiKey, setApiKey] = useState('AIzaSyCtu7ZTNOPAgMNlLrvGzHqCIaH-cU2AiIk');
+    const [isLoading, setIsloading] = useState(false);
 
     let controlComponent;
+
+    function handleClickLoading(){
+        setIsloading(true);
+    }
 
     //- Função que vai capturar o que estiver sendo digitado no campo.
     function handleChange(event) {
@@ -40,6 +45,7 @@ export default () => {
         axios.get(`https://www.googleapis.com/books/v1/volumes?q=search+${nameBook}&key=${apiKey}&maxResults=40`)
             .then(data => {
                 setResult(data.data.items);
+                setIsloading(false);
                 console.log(data.data.items);
             }).catch(erros => {
                 alert(erros);
@@ -50,7 +56,7 @@ export default () => {
         controlComponent = result.map(book => (
             <ContainerImageOne >
                 <Teste>
-                <ImageBook src={book.volumeInfo.imageLinks !== undefined ? book.volumeInfo.imageLinks.thumbnail : ''} alt={book.title} />
+                    <ImageBook src={book.volumeInfo.imageLinks !== undefined ? book.volumeInfo.imageLinks.thumbnail : ''} alt={book.title} />
                 </Teste>
                 <hr />
                 <ContainerDescription>
@@ -70,14 +76,14 @@ export default () => {
 
                 </ContainerDescription>
                 <hr />
-                {book.saleInfo.buyLink  &&
-                    
+                {book.saleInfo.buyLink &&
+
                     <LinkCompra href={book.saleInfo.buyLink} target="_blank">
-                        <Button style={{alignItems: 'center', textAlign: 'center', marginLeft: '20px'}} variant="success">Comprar <FontAwesomeIcon icon={faShoppingCart} /></Button>
+                        <Button style={{ alignItems: 'center', textAlign: 'center', marginLeft: '20px' }} variant="success">Comprar <FontAwesomeIcon icon={faShoppingCart} /></Button>
                     </LinkCompra>
                 }
-                {!book.saleInfo.buyLink  &&
-                    <InfoNotBuy>Indisponível</InfoNotBuy>                        
+                {!book.saleInfo.buyLink &&
+                    <InfoNotBuy>Indisponível</InfoNotBuy>
                 }
             </ContainerImageOne>
         ))
@@ -95,8 +101,8 @@ export default () => {
                             <Form.Control type="text" onChange={handleChange} value={nameBook} />
                         </Form.Group>
                         <Form.Group>
-                            <Button variant="success" type="submit" data-testid="btn-pesquisar">
-                                Pesquisar
+                            <Button onClick={handleClickLoading} variant="success" type="submit" data-testid="btn-pesquisar">
+                            {isLoading ? 'Carregando…' : 'Pesquisar'}
                             </Button>
                         </Form.Group>
                     </Form>
