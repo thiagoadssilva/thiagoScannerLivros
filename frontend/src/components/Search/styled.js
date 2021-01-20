@@ -24,48 +24,73 @@ export const ContainerImageOne = styled.div`
     margin: 15px;
     padding: 15px;
     background-color: #E9E8EB;
+    border-radius: 10px;
     
 `;
 
 export const ImageBook = styled.img`
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     border-radius: 15px;
-    
 `;
 
 export const TitleBook = styled.label`
-    width: 160%;
+    width: 150px;
     word-wrap: break-word;
     font-size: 12px;
-    padding: 5px;
     margin-bottom: 2px;
-    font-weight: 800;
+    font-weight: 900;
+    padding-left: 10px;
 `;
 
 export const TitleAuthor = styled.label`
-    width: 160px;
+    width: 150px;
     font-size: 12px;
-    font-weight: 800;
+    font-weight: 900;
     padding: 5px;
     margin-bottom: 2px;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    padding-left: 10px;
 `;
 
 export const ContainerDescription = styled.div`
-    width: 100px;
+    width: 150px;
     word-wrap: break-word;
-    height: 130px;;
+    height: 150px;;
     margin-top: 5px;
+    background-color: #CCC;
+    border-radius: 15px;
+    margin-top: 10px;
 `;
 
 export const TitleName = styled.label`
     margin-bottom: 0px;
     font-size: 12px;
+    font-weight: bold;
+    padding: 5px;
 `;
 export const TitleAuthorName = styled.label`
     margin-bottom: 0px;
     font-size: 12px;
+    font-weight: bold;
+    padding: 5px;
+`;
+
+export const InfoNotBuy = styled.label`
+    font-weight: bold;
+    color: red;
+    margin-left: 25px;
+    margin-top: 5px;
+`;
+
+export const Teste = styled.div`
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    height: 160px;
+    width: 160px;
 `;

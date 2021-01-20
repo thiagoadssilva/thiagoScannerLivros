@@ -16,7 +16,9 @@ import {
     LinkCompra,
     ContainerJumbotron,
     TitleName,
-    TitleAuthorName
+    TitleAuthorName,
+    InfoNotBuy,
+    Teste
 } from './styled';
 
 export default () => {
@@ -47,9 +49,10 @@ export default () => {
     if (result) {
         controlComponent = result.map(book => (
             <ContainerImageOne >
-
+                <Teste>
                 <ImageBook src={book.volumeInfo.imageLinks !== undefined ? book.volumeInfo.imageLinks.thumbnail : ''} alt={book.title} />
-
+                </Teste>
+                <hr />
                 <ContainerDescription>
                     <TitleName>
                         Livro:
@@ -72,6 +75,9 @@ export default () => {
                     <LinkCompra href={book.saleInfo.buyLink} target="_blank">
                         <Button style={{alignItems: 'center', textAlign: 'center', marginLeft: '20px'}} variant="success">Comprar <FontAwesomeIcon icon={faShoppingCart} /></Button>
                     </LinkCompra>
+                }
+                {!book.saleInfo.buyLink  &&
+                    <InfoNotBuy>Indisponível</InfoNotBuy>                        
                 }
             </ContainerImageOne>
         ))
