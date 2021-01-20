@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
     padding: 20px;
     background-color: #393e46;
+    height: 100%;
 `;
 
 export const ContainerJumbotron = styled.div`
@@ -23,7 +24,6 @@ export const ContainerImage = styled.div`
 export const ContainerImageOne = styled.div`
     margin: 10px;
     padding: 10px;
-    background-color: #E9E9EC;
 `;
 
 export const ImageBook = styled.img`
