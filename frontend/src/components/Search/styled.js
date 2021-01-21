@@ -40,7 +40,7 @@ export const TitleBook = styled.label`
     font-size: 11px;
     margin-bottom: 2px;
     font-weight: 900;
-    padding-left: 13px;
+    padding-left: 5px;
 `;
 
 export const TitleAuthor = styled.label`
@@ -52,16 +52,16 @@ export const TitleAuthor = styled.label`
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    padding-left: 13px;
+    padding-left: 5px;
 `;
 
 export const ContainerDescription = styled.div`
-    width: 150px;
+    width: 170px;
     word-wrap: break-word;
     height: 150px;;
     margin-top: 5px;
     background-color: #CCC;
-    border-radius: 15px;
+    border-radius: 5px;
     margin-top: 10px;
 
 `;
@@ -82,7 +82,7 @@ export const TitleAuthorName = styled.label`
 export const InfoNotBuy = styled.label`
     font-weight: bold;
     color: red;
-    margin-left: 25px;
+    margin-left: 35px;
     margin-top: 5px;
 `;
 

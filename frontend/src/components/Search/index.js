@@ -23,14 +23,14 @@ import {
 
 export default () => {
 
-    const [nameBook, setNameBook] = useState('php');
+    const [nameBook, setNameBook] = useState('');
     const [result, setResult] = useState([]);
     const [apiKey, setApiKey] = useState('AIzaSyCtu7ZTNOPAgMNlLrvGzHqCIaH-cU2AiIk');
     const [isLoading, setIsloading] = useState(false);
 
     let controlComponent;
 
-    function handleClickLoading(){
+    function handleClickLoading() {
         setIsloading(true);
     }
 
@@ -62,24 +62,24 @@ export default () => {
                 <ContainerDescription>
                     <TitleName>
                         Livro:
+                        <TitleBook>{book.volumeInfo.title}</TitleBook>
                     </TitleName>
-
-                    <TitleBook>{book.volumeInfo.title}</TitleBook>
 
                     <TitleAuthorName>
                         Autor:
+                        <TitleAuthor>
+                            {book.volumeInfo.authors && book.volumeInfo.authors}
+                            {!book.volumeInfo.authors && "Não Informado"}
+                        </TitleAuthor>
                     </TitleAuthorName>
-                    <TitleAuthor>
-                        {book.volumeInfo.authors && book.volumeInfo.authors}
-                        {!book.volumeInfo.authors && "Não Informado"}
-                    </TitleAuthor>
-
                 </ContainerDescription>
+
                 <hr />
+
                 {book.saleInfo.buyLink &&
 
                     <LinkCompra href={book.saleInfo.buyLink} target="_blank">
-                        <Button style={{ alignItems: 'center', textAlign: 'center', marginLeft: '20px' }} variant="success">Comprar <FontAwesomeIcon icon={faShoppingCart} /></Button>
+                        <Button style={{ alignItems: 'center', textAlign: 'center', marginLeft: '30px' }} variant="success">Comprar <FontAwesomeIcon icon={faShoppingCart} /></Button>
                     </LinkCompra>
                 }
                 {!book.saleInfo.buyLink &&
@@ -102,7 +102,7 @@ export default () => {
                         </Form.Group>
                         <Form.Group>
                             <Button onClick={handleClickLoading} variant="success" type="submit" data-testid="btn-pesquisar">
-                            {isLoading ? 'Carregando…' : 'Pesquisar'}
+                                {isLoading ? 'Carregando…' : 'Pesquisar'}
                             </Button>
                         </Form.Group>
                     </Form>
