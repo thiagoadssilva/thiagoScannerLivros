@@ -15,6 +15,6 @@
 
 ## <b>Cadastrar Tarefa</b> 
 
-![Tela Principal](images/inicio.png)
+![Tela Principal](images/projeto.png)
 
 <hr>
